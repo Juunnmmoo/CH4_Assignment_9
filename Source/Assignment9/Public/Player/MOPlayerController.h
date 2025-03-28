@@ -26,7 +26,13 @@ protected:
 public:
 	void SetChatMessageString(const FString& _inChatMessageString);
 
-	void PrintChatMesageString(const FString& _inChatMessageString);
+	void PrintChatMessageString(const FString& _inChatMessageString);
+
+	UFUNCTION(Client, Reliable)
+	void ClientRPCPrintChatMessageString(const FString& _inChatMessageString);
+
+	UFUNCTION(Server, Reliable)
+	void ServerRPCPrintChatMessageString(const FString& _inChatMessageString);
 
 public:
 	virtual void BeginPlay() override;
